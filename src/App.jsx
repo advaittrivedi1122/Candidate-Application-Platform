@@ -10,6 +10,7 @@ function App() {
   const [experience, setExperience] = useState([])
   const [remote, setRemote] = useState([]);
   const [minBasePay, setMinBasePay] = useState([]);
+  const [searchInput, setSearchInput] = useState('');
 
   useEffect(()=>{
     console.log("Roles", roles)
@@ -17,11 +18,12 @@ function App() {
     console.log("Experience", experience)
     console.log("Remote", remote)
     console.log("Min Base Pay", minBasePay)
-  }, [roles, numberOfEmployees, experience, remote, minBasePay])
+    console.log("Search Input", searchInput)
+  }, [roles, numberOfEmployees, experience, remote, minBasePay, searchInput])
 
   return (
     <div className="app" >
-      <FilterContext.Provider value={{ roles, setRoles, numberOfEmployees, setNumberOfEmployees, experience, setExperience, remote, setRemote, minBasePay, setMinBasePay }}>
+      <FilterContext.Provider value={{ roles, setRoles, numberOfEmployees, setNumberOfEmployees, experience, setExperience, remote, setRemote, minBasePay, setMinBasePay, searchInput, setSearchInput }}>
         <FilterBar></FilterBar>
         <Jobs></Jobs>
       </FilterContext.Provider>
