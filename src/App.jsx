@@ -20,7 +20,7 @@ function App() {
   }, [roles, numberOfEmployees, experience, remote, minBasePay])
 
   return (
-    <div className="app">
+    <div className="app" >
       <FilterContext.Provider value={{ roles, setRoles, numberOfEmployees, setNumberOfEmployees, experience, setExperience, remote, setRemote, minBasePay, setMinBasePay }}>
         <FilterBar></FilterBar>
         <Jobs></Jobs>

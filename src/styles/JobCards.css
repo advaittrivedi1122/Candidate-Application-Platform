@@ -1,11 +1,3 @@
-.jobCards {
-  display: flex;
-  justify-content: start;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: flex-start;
-}
-
 .card-container {
     border: 3px solid rgb(221, 209, 209);
     border-radius: 20px;

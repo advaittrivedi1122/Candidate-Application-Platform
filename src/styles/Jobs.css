@@ -1,4 +1,9 @@
 .jobs {
     margin: 5vh;
     min-height: 100vh;
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
 }

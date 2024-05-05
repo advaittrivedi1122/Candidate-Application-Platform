@@ -1,7 +1,7 @@
 import React from 'react'
 import "../styles/JobCards.css"
 
-const JobCards = () => {
+const JobCards = ({job}) => {
   return (
     <div className='jobCards'>
             <div className="card-container">
@@ -11,22 +11,40 @@ const JobCards = () => {
                 </div>
                 <div className='logo-title'>
                     <div className="logo">
-                        <img src="https://storage.googleapis.com/weekday-assets/airtableAttachment_1713598325603_7ico7.jpg" alt="" />
+                        <img src={job.logoUrl} alt="Logo" />
                     </div>
                     <div className="title">
-                        <div className='company'>Fampay</div>
-                        <div className='role'>Backend Engineer</div>
-                        <div className='location'>Banglore</div>
+                        <div className='company'>{job.companyName}</div>
+                        <div className='role'>{job.jobRole}</div>
+                        <div className='location'>{job.location}</div>
                     </div>
                 </div>
-                <div className="estimated-salary">
-                Estimated Salary: ₹18 - 35 LPA ✅
-                </div>
+                {
+                    (job.minJdSalary && job.maxJdSalary) && (
+                        <div className="estimated-salary">
+                        Estimated Salary: ₹{job.minJdSalary} - {job.maxJdSalary} LPA ✅
+                        </div>
+                    )
+                }
+                {
+                    (job.minJdSalary && !job.maxJdSalary) && (
+                        <div className="estimated-salary">
+                        Estimated Salary: ₹{job.minJdSalary}+ LPA ✅
+                        </div>
+                    )
+                }
+                {
+                    (!job.minJdSalary && job.maxJdSalary) && (
+                        <div className="estimated-salary">
+                        Estimated Salary: Upto ₹{job.maxJdSalary} LPA ✅
+                        </div>
+                    )
+                }
                 <div className='about'>
                     <div className="about-company">About Company:</div>
                     <div className="about-us">About us</div>
                     <div className="description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Error ipsam aliquid quas, ipsa facilis ducimus animi perspiciatis quod sequi ab dolorem, soluta perferendis culpa maiores autem eligendi? Esse consequuntur quidem, dolorem nemo dolore deserunt perferendis nam assumenda rerum eos inventore sequi numquam nulla praesentium reiciendis, atque facilis repudiandae. Eveniet in architecto a, libero reiciendis incidunt accusamus dolorum, consequuntur obcaecati expedita tempora! Laudantium expedita odio quos ea et. Fugit veritatis sint adipisci odit omnis accusantium, voluptatum incidunt vitae sit tenetur dignissimos laboriosam aspernatur iste ab praesentium nam blanditiis consequatur laborum sapiente dolore beatae doloremque impedit perspiciatis! Eum esse earum debitis officia!
+                        {job.jobDetailsFromCompany}
                     </div>
                     <div className="view-job">
                         <div>View Job</div>
@@ -34,7 +52,7 @@ const JobCards = () => {
                 </div>
                 <div className='apply'>
                     <div className='min-experience'>Minimum Experience</div>
-                    <div className='experience-years'>2 years</div>
+                    <div className='experience-years'>{job.minExp} years</div>
                     <div >
                         <button className='easy-apply'> ⚡ Easy Apply</button>
                     </div>
