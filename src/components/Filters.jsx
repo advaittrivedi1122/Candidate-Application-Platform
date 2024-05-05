@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { TextField, Autocomplete, MenuItem } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 import { FilterContext } from "../context/FilterContext";
@@ -14,14 +14,15 @@ const names = [
   "Rocco Richardson",
   "Harris Glenn"
 ];
+
 export default function Filters(props) {
 
-    const { roles, setRoles } = useContext(FilterContext)
+    // const { roles, setRoles } = useContext(FilterContext)
 
-    
 
   return (
     <Autocomplete
+    onChange={(event, value) => props.setFilter(value)}
       sx={{ m: '5px 10px', minWidth: props.width, width: "auto" }}
       multiple
       options={names}
@@ -43,6 +44,7 @@ export default function Filters(props) {
           sx={{ justifyContent: "space-between", fontSize: "small" }}
         >
           {option}
+          {selected ? <CheckIcon color="info" /> : null}
         </MenuItem>
       )}
     />

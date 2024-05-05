@@ -1,8 +1,6 @@
 .filterBar {
     display: flex;
     flex-direction: row;
-    /* justify-content: space-evenly; */
     margin-top: 2vh;
     flex-wrap: wrap;
-    /* border: 2px solid red; */
-  }
+}

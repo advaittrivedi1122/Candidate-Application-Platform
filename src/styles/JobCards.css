@@ -1,0 +1,16 @@
+.jobCards {
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.card {
+    border: 3px solid rgb(221, 209, 209);
+    border-radius: 20px;
+    margin: 23px;
+    height: 90vh;
+    width: 370px;
+    
+}
